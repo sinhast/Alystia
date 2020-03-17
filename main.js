@@ -10,6 +10,7 @@ client.PREFIX = config.PREFIX;
 client.commands = new Discord.Collection();
 client.commands.set("botsay", require("./commands/botsay.js"));
 client.commands.set("sinfo", require("./commands/sinfo.js"));
+client.commands.set("ping", require("./commands/ping.js"));
 
 client.on("ready", () => require("./events/ready.js")(client));
 
