@@ -1,51 +1,24 @@
 const Discord = require("discord.js");
 const config = require("./config");
-const Alystia = new Discord.Client();
+const client = new Discord.Client();
 
-Alystia.login(config.TOKEN);
+client.login(config.TOKEN);
+client.on("warn", console.warn);
+client.on("error", console.error);
+client.PREFIX = config.PREFIX;
 
-Alystia.on("ready", () => console.log(`Logged in as ${Alystia.user.tag}!`));
-Alystia.on("warn", console.warn);
-Alystia.on("error", console.error);
-Alystia.on("debug", console.log);
+client.commands = new Discord.Collection();
+client.commands.set("botsay", require("./commands/botsay.js"));
+client.commands.set("sinfo", require("./commands/sinfo.js"));
 
-Alystia.on("message", msg => {
-  if (msg.author.bot) return;
-  if (msg.content.indexOf(config.PREFIX) !== 0) return;
-  const args = msg.content
-    .slice(config.PREFIX.length)
-    .trim()
-    .split(/ +/g);
-  const cmd = args.shift().toLowerCase();
+client.on("ready", () => require("./events/ready.js")(client));
 
-  if (cmd === "ping") msg.channel.send(".pong");
+client.on("message", msg => require("./events/message.js")(client, msg));
 
-  if (cmd === "ping") msg.channel.send(".ping");
+client.on("guildMemberAdd", member =>
+  require("./events/guildMemberAdd.js")(client, member)
+);
 
-  if (cmd === "say") {
-    msg.channel.send(args.join(" "));
-    msg
-      .delete({ timeout: 0.5 })
-      .then(console.log("A message has been deleted."));
-  }
-
-  if (cmd === "sinfo") {
-    const embed = new Discord.MessageEmbed()
-      .setDescription(msg.guild.name)
-      .setThumbnail(msg.guild.iconURL())
-      .addField("Membres", msg.guild.memberCount)
-      .setFooter(msg.guild.owner.user.tag, msg.guild.owner.user.avatarURL())
-      .setTimestamp();
-    msg.channel.send(embed);
-  }
-});
-
-Alystia.on("guildMemberAdd", member => {
-  const welcomeMember = Alystia.channels.cache.get("452782931971407874");
-  welcomeMember.send(`${member} a rejoint le serveur !`);
-});
-
-Alystia.on("guildMemberRemove", member => {
-  const goodbyeMember = Alystia.channels.cache.get("452782931971407874");
-  goodbyeMember.send(`${member} a quitté le serveur !`);
-});
+client.on("guildMemberRemove", member =>
+  require("./events/guildMemberRemove.js")(client, member)
+);
