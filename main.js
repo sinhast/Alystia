@@ -24,3 +24,8 @@ Alystia.on("guildMemberAdd", member => {
   const welcomeMember = Alystia.channels.cache.get("452782931971407874");
   welcomeMember.send(`${member} a rejoint le serveur !`);
 });
+
+Alystia.on("guildMemberRemove", member => {
+  const goodbyeMember = Alystia.channels.cache.get("452782931971407874");
+  goodbyeMember.send(`${member} a quitté le serveur !`);
+});
