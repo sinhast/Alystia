@@ -47,7 +47,7 @@ module.exports = {
 };
 ```
 
-Finally, don't forget to replace `token` and `prefix` with your parameters.
+Finally, don't forget to replace `TOKEN` and `PREFIX` with your parameters.
 
 ## Links
 
