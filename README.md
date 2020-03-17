@@ -32,7 +32,7 @@ Alystia was made with :
 
 **Node.js 12.0.0 or newer is required.**
 
-In first, clone (or fork if you want to contrib) and initialize it with : `npm install`  
+In first, clone (or fork if you want to contrib) and initialize it with : `npm install`
 
 When it's done, create a new file and name it `settings.js`
 
@@ -42,9 +42,8 @@ Then, put that in :
 "use strict";
 
 module.exports = {
-  token: "Your Token here",
-
-  prefix: "The Prefix you want for the bot"
+  TOKEN: "Your Token here",
+  PREFIX: "The Prefix you want for the bot"
 };
 ```
 
