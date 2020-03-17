@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const Settings = require("./settings.js");
 const Alystia = new Discord.Client();
 
-Alystia.login(Settings.token);
+Alystia.login(Settings.TOKEN);
 
 Alystia.on("ready", () => {
   console.log(`Logged in as ${Alystia.user.tag}!`);
