@@ -1,26 +1,39 @@
 {
-  "name": "alystia",
-  "version": "0.1.0",
-  "description": "A simple Discord Bot",
-  "main": "main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sinhast/Alystia.git"
-  },
-  "keywords": [
-    "discord",
-    "bot"
-  ],
-  "author": "Sinhast <dylanv.dev@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/sinhast/Alystia/issues"
-  },
-  "homepage": "https://github.com/sinhast/Alystia#readme",
-  "dependencies": {
-    "discord.js": "^12.0.2"
-  }
+    "name": "alystia",
+    "version": "0.1.0",
+    "description": "A simple Discord Bot",
+    "main": "main.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sinhast/Alystia.git"
+    },
+    "keywords": [
+        "discord",
+        "bot"
+    ],
+    "author": "Sinhast <dylanv.dev@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/sinhast/Alystia/issues"
+    },
+    "homepage": "https://github.com/sinhast/Alystia#readme",
+    "dependencies": {
+        "discord.js": "^12.0.2"
+    },
+    "devDependencies": {
+        "eslint": "^6.8.0",
+        "eslint-config-aqua": "^7.2.1"
+    },
+    "eslintConfig": {
+        "extends": "aqua/node",
+        "rules": {
+            "linebreak-style": ["error", "windows"],
+            "quotes": ["warn", "double"],
+            "indent": ["error", 2],
+            "curly": "off"
+        }
+    }
 }
