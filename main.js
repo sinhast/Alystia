@@ -11,12 +11,22 @@ Alystia.on("debug", console.log);
 
 Alystia.on("message", msg => {
   if (msg.author.bot) return;
-  const args = msg.content.split(/ +/g);
+  if (msg.content.indexOf(config.PREFIX) !== 0) return;
+  const args = msg.content
+    .slice(config.PREFIX.length)
+    .trim()
+    .split(/ +/g);
   const cmd = args.shift().toLowerCase();
-  if (cmd === `${config.PREFIX}ping`) msg.channel.send(".pong");
-  if (cmd === `${config.PREFIX}pong`) msg.channel.send(".ping");
-  if (cmd === `${config.PREFIX}repeat`) {
-    msg.channel.send(args.jopin(""));
+
+  if (cmd === "ping") msg.channel.send(".pong");
+
+  if (cmd === "ping") msg.channel.send(".ping");
+
+  if (cmd === "say") {
+    msg.channel.send(args.join(" "));
+    msg
+      .delete({ timeout: 0.5 })
+      .then(console.log("A message has been deleted."));
   }
 });
 
