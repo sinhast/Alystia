@@ -34,7 +34,7 @@ Alystia was made with :
 
 In first, clone (or fork if you want to contrib) and initialize it with : `npm install`
 
-When it's done, create a new file and name it `settings.js`
+When it's done, create a new file and name it `config.js`
 
 Then, put that in :
 
