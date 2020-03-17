@@ -19,3 +19,8 @@ Alystia.on("message", msg => {
     msg.channel.send(args.jopin(""));
   }
 });
+
+Alystia.on("guildMemberAdd", member => {
+  const welcomeMember = Alystia.channels.cache.get("452782931971407874");
+  welcomeMember.send(`${member} a rejoint le serveur !`);
+});
