@@ -6,11 +6,13 @@ client.login(config.TOKEN);
 client.on("warn", console.warn);
 client.on("error", console.error);
 client.PREFIX = config.PREFIX;
+client.WELCOME = config.WELCOME_CHANNEL;
 
 client.commands = new Discord.Collection();
 client.commands.set("botsay", require("./commands/botsay.js"));
 client.commands.set("sinfo", require("./commands/sinfo.js"));
 client.commands.set("ping", require("./commands/ping.js"));
+client.commands.set("animals", require("./commands/animals.js"));
 
 client.on("ready", () => require("./events/ready.js")(client));
 

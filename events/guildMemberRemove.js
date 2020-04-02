@@ -1,4 +1,4 @@
 module.exports = (client, member) => {
-  const goodbyeMember = client.channels.cache.get("452782931971407874");
+  const goodbyeMember = client.channels.cache.get(client.WELCOME);
   goodbyeMember.send(`${member} a quitté le serveur !`);
 };

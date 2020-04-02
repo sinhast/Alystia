@@ -1,4 +1,4 @@
 module.exports = (client, member) => {
-  const welcomeMember = client.channels.cache.get("452782931971407874");
+  const welcomeMember = client.channels.cache.get(client.WELCOME);
   welcomeMember.send(`${member} a rejoint le serveur !`);
 };
