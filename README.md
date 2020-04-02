@@ -39,11 +39,10 @@ When it's done, create a new file and name it `config.js`
 Then, put that in :
 
 ```js
-"use strict";
-
 module.exports = {
-  TOKEN: "Your Token here",
-  PREFIX: "The Prefix you want for the bot"
+  TOKEN: "YOUR TOKEN",
+  PREFIX: "THE PREFIX YOU WANT",
+  WELCOME_CHANNEL: "Lounge ID"
 };
 ```
 
